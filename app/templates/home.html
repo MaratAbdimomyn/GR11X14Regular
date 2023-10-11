@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h3>Лист задач</h3>
+        {% for i in actions %}
+        <ul>
+            <li>{{ i.action }} | <a href={% url 'about' i.pk %}>{{ i.about }}</a>
+                | {{ i.deadline }} | {% if i.done %} ✔ {% else %} X {% endif %}</li>
+        </ul>
+        {% endfor %}
+
+        <a href={% url 'create' %}>Добавить задачу</a>
+    </body>
+</html>
